@@ -3,15 +3,15 @@ deploy:
 	jekyll build && \
 	git add -A && \
 	git commit -m "update source" && \
-	cd $HOME
+	cd ~
 	rm -rf tmp/ && \
 	mkdir tmp/ && \
-	cd -
-	cp -r _site/ $HOME/tmp/ && \
+	cd ~
+	cp -r _site/ ~/tmp/ && \
 	git checkout master && \
 	rm -r ./* && \
-	cp -r $HOME/tmp/ ./ && \
-	rm -rf $HOME/tmp/ && \
+	cp -r ~/tmp/ ./ && \
+	rm -rf ~/tmp/ && \
 	git add -A && \
 	git commit -m "deploy blog" && \
 	git push origin master && \
