@@ -47,15 +47,35 @@
   
   <!-- js File -->
   <script src="//lib.sinaapp.com/js/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+  <script src="/js/nanzhuang.js" type="text/javascript"></script>
   </head>
   <body>
-        
+  	   <div id="wrapper">
+  	   	 
 
 
-        <a data-type="2" biz-keyword="女装" data-tmpl="720x220" data-tmplid="209" data-rd="2" data-style="2" data-border="1" href="#">女装</a>
-        <img src="">
+  	   	 <script type="text/javascript">
+var tmpl = '';
+for(var i=0,length = data.pagelist.length;i<length;i++){
+      tmpl += '<li><a data-type="0" biz-itemid="' + data.pagelist[i].auctionId + '" data-style="2" data-tmpl="230x312" target="_blank"></a></li>';
+}
+</script>
+
+<ul class="itemList"><li><a data-type="0" biz-itemid="521274530979" data-style="2" data-tmpl="230x312" target="_blank"></a></li>
+<li><a data-type="0" biz-itemid="19390404527" data-style="2" data-tmpl="230x312" target="_blank"></a></li>
+<li><a data-type="0" biz-itemid="521274530979" data-style="2" data-tmpl="230x312" target="_blank"></a></li>
+<li><a data-type="0" biz-itemid="521274530979" data-style="2" data-tmpl="230x312" target="_blank"></a></li>
+<li><a data-type="0" biz-itemid="521274530979" data-style="2" data-tmpl="230x312" target="_blank"></a></li>
+<li><a data-type="0" biz-itemid="521274530979" data-style="2" data-tmpl="230x312" target="_blank"></a></li>
+<li><a data-type="0" biz-itemid="521274530979" data-style="2" data-tmpl="230x312" target="_blank"></a></li>
+<li><a data-type="0" biz-itemid="521274530979" data-style="2" data-tmpl="230x312" target="_blank"></a></li>
+<li><a data-type="0" biz-itemid="521274530979" data-style="2" data-tmpl="230x312" target="_blank"></a></li>
+<li><a data-type="0" biz-itemid="521274530979" data-style="2" data-tmpl="230x312" target="_blank"></a></li>
+<li><a data-type="0" biz-itemid="521274530979" data-style="2" data-tmpl="230x312" target="_blank"></a></li></ul>
+  	   	 <img src="">
    <script type="text/javascript">
     (function(win,doc){
+        $(".itemList").html(tmpl)
         var s = doc.createElement("script"), h = doc.getElementsByTagName("head")[0];
         if (!win.alimamatk_show) {
             s.charset = "gbk";
@@ -73,6 +93,8 @@
         win.alimamatk_onload.push(o);
     })(window,document);
 </script>
+  	   </div>
+  	   
   </body>
 </html>
 
