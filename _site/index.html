@@ -52,19 +52,19 @@
   <body>
   	   <div id="wrapper">
   	   	 <script type="text/javascript">
-	window.onload = function(){
+	$(function(){
 		var tmpl = '';
 		for(var i=0,length = 200;i<length;i++){
 		      tmpl += '<li><a data-type="0" biz-itemid="' + data[i] + '" data-style="2" data-tmpl="230x312" target="_blank"></a></li>';
 		}
-	};
+		$(".itemList").html(tmpl);
+	});
 </script>
 
 <ul class="itemList"></ul>
   	   	 <img src="">
    <script type="text/javascript">
     (function(win,doc){
-        $(".itemList").html(tmpl)
         var s = doc.createElement("script"), h = doc.getElementsByTagName("head")[0];
         if (!win.alimamatk_show) {
             s.charset = "gbk";
