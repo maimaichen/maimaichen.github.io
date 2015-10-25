@@ -3,10 +3,12 @@ layout: gride
 title: Home
 ---
 <script type="text/javascript">
-var tmpl = '';
-for(var i=0,length = 200;i<length;i++){
-      tmpl += '<li><a data-type="0" biz-itemid="' + data[i] + '" data-style="2" data-tmpl="230x312" target="_blank"></a></li>';
-}
+	window.onload = function(){
+		var tmpl = '';
+		for(var i=0,length = 200;i<length;i++){
+		      tmpl += '<li><a data-type="0" biz-itemid="' + data[i] + '" data-style="2" data-tmpl="230x312" target="_blank"></a></li>';
+		}
+	};
 </script>
 
 <ul class="itemList"></ul>
