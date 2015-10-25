@@ -42,11 +42,13 @@ gulp.task('jekyll-rebuild', ['jekyll-build'], function () {
  */
 gulp.task('browser-sync', ['sass', 'jekyll-build', 'coffee'], function() {
     browserSync({
-        host: '0.0.0.0',    // For Cloud9 IDE Previews. Remove for localhost
-        port: '8080',       // For Cloud9 IDE Previews. Remove for browserSync default
+        host: 'www.maimaichen.com',    // For Cloud9 IDE Previews. Remove for localhost
+        port: '8081',       // For Cloud9 IDE Previews. Remove for browserSync default
         server: {
-            baseDir: '_site'
-        }
+            baseDir: '_site',
+            proxy: 'www.maimaichen.com'
+        },
+
     });
 });
 
@@ -73,8 +75,7 @@ gulp.task('sass', function () {
     return gulp.src('_sass/main.scss')
         .pipe(sass({
             includePaths: ['scss'],
-            style: 'expanded',              // Human readable CSS
-            onError: browserSync.notify
+            style: 'expanded'
         }))
         .pipe(prefix(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true }))
         .pipe(gulp.dest('_site/css'))
@@ -86,7 +87,7 @@ gulp.task('sass', function () {
         .pipe(minifyCSS())
         .pipe(rename({suffix: '.min'}))
         .pipe(gulp.dest('_site/css'))
-        .pipe(browserSync.reload({stream:true}))
+        // .pipe(browserSync.reload({stream:true}))
         .pipe(gulp.dest('css'));
 });
 
@@ -105,14 +106,14 @@ gulp.task('images', function () {
  * Watch html/md files, run jekyll & reload BrowserSync
  */
 gulp.task('watch', function () {
-    gulp.watch('coffee/*.js', ['jekyll-build', 'coffee']);
+    // gulp.watch('coffee/*.js', ['coffee']);
     gulp.watch('_sass/*.scss', ['sass']);
-    gulp.watch(['index.html', '_layouts/*.html', '_includes/*.html', '_posts/*', '_posts/*/*', '_data/*'], ['jekyll-rebuild']);
+    // gulp.watch(['index.html', '_layouts/*.html', '_includes/*.html', '_posts/*', '_posts/*/*', '_data/*']);
 });
 
 /**
  * Default task, running just `gulp` will compile the sass,
  * compile the jekyll site, launch BrowserSync & watch files.
  */
-gulp.task('default', ['browser-sync', 'watch']);
+gulp.task('default', ['watch']);
 gulp.task('img', ['images']);
